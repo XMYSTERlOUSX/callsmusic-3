@@ -23,27 +23,52 @@ from ..helpers.filters import other_filters2
 @Client.on_message(other_filters2)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""I am an open-source @CallsMusic bot, I let you play music in your group’s voice chat.
+         f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
 
-The commands I currently support are:
-
-/play - play the replied audio file or YouTube video
-/pause - pause the audio stream
-/resume - resume the audio stream
-/skip - skip the current audio stream
-/mute - mute the userbot
-/unmute - unmute the userbot
-/stop - clear the queue and remove the userbot from the call""",
+<i>I am a Group Music Play Bot!</i>  
+<i>Specially designed for GroupChat with ❤️ by @xmysteriousx</i>""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Group", url="https://t.me/callsmusicchat"
+                        "⚒ BOT OWNER", url="https://t.me/xmysteriousx"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "JOIN OUR GROUP", url="https://t.me/Rezoth_tm"
                     ),
                     InlineKeyboardButton(
-                        "Channel", url="https://t.me/callsmusic"
+                        "JOIN OUR CHANNEL", url="https://t.me/Rezoth"
                     )
                 ]
             ]
         )
+    )
+    
+@Client.on_message(other_filters2)
+async def help(_, message: Message):
+    await message.reply_text(
+        """<b>How to use me:-</b>
+💠 First you should add me <i>(@Mystry_Music_Player_bot)</i> to your group and give me admin permissions.
+        
+💠 Then you should add my assistant music player account - <i>@Mystry_Music_Player to your groups.</i>
+(This account will play music in your groups.)
+         
+💠Then start a voice chat in your group.
+💠Then send a youtube link and reply /play to it.
+<i>(You can press /yts to search songs and after sending the link to the group you can reply /play to it.)</i>
+💠 If you want to play an audio file send the audio to the group and reply /play to it.
+<b>Note</b> :- Queue option has been fixed.
+Use /skip for move to the next song.
+Use /end for ending the stream.
+        
+<b>Important rules you should follow.</b>
+        
+1. You can play youtube links and audio files using me.
+2. Do not send song links longer than 10 minutes.
+3. Do not send youtube playlists.
+That's it.
+Hope you enjoy me.🙂
+<b><i>Created with ❤️ by @xmysteriousx</i></b>"""
     )
